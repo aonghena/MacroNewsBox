@@ -1,0 +1,42 @@
+html, body { height:100%; margin:0; padding:0 }
+
+.example::-webkit-scrollbar {
+    display: none;
+}
+
+hr{
+    border-color: gray;
+    height: 1px;
+}
+body {
+    font-family: Source Code Pro !important;
+    font-size: 12px;
+}
+div { position:fixed; text-overflow: ellipsis;}
+
+p { color: white}
+
+#W { top:0;   left:0; width:32.8%;  background:black; height:100%;  overflow-y:auto; padding: 2px; text-overflow: ellipsis;}
+#S { top:0; left:33%;   width: 33%; background:black; height:54%;  }
+#E { top:50%; left:33%;   width: 33%;background: black; height:50%;    }
+#N { top:0; left:66%; background:black; height:100% ; overflow-y:auto;    max-width: 333px;}    
+
+a { color: #FE9E23; }
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+text-decoration: none;
+}
+#sf {position:fixed; bottom: 0; background: black; min-width: 100000px;
+}
+
+#twitter-widget-holder { 
+    max-height:400px; 
+    max-width:320px; 
+    padding:20px; 
+    background:#fff; 
+    border-radius:3px; 
+    box-shadow:2px 2px 3px rgba(0,0,0,.1); 
+  }
