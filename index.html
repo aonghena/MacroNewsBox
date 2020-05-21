@@ -6,6 +6,7 @@
     <link href="index.css" rel="stylesheet" type="text/css">
     <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
     <script src="/node_modules/rss-parser/dist/rss-parser.min.js"></script>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
   <body>
@@ -14,11 +15,13 @@
     </script>
     <div id="W">
         <script>
-            require('./renderList.js');
+            require('./renderRSS.js');
         </script>
     </div>
     <div id="N">
-        <a class="twitter-timeline" data-dnt="true" data-theme="dark" data-chrome="noheader noborders transparent nofooter" href="https://twitter.com/nuclearfootie/lists/newswire?ref_src=twsrc%5Etfw">A Twitter List by LondonXK</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <script>
+          require('./renderTwitter.js')
+        </script>
     </div>
     <div id="S">
         <iframe width="100%"  scrolling="no" height="100%" frameborder="0" src="https://widgets.tc2000.com/WidgetServer.ashx?id=181885"></iframe>

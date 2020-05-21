@@ -1,0 +1,13 @@
+{
+   "twitter-list": "https://twitter.com/nuclearfootie/lists/newswire?ref_src=twsrc%5Etfw",
+   "rss-feed": [
+      {
+         "name": "CNBC",
+         "url": "https://www.cnbc.com/id/10000664/device/rss/rss.html"
+      },
+      {
+         "name": "ZeroHedge",
+         "url": "http://feeds.feedburner.com/zerohedge/feed"
+      }
+   ]
+}
