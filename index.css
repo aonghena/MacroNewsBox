@@ -1,4 +1,4 @@
-html, body { height:100%; margin:0; padding:0 }
+html, body { height:100%; margin:0; padding:0; color: #FE9E23;}
 
 .example::-webkit-scrollbar {
     display: none;
@@ -12,6 +12,13 @@ body {
     font-family: Source Code Pro !important;
     font-size: 12px;
     background-color: black;
+}
+
+img{
+  height: 10px;
+  padding-left: 2px;
+  float: right;
+  padding-top: 2px;
 }
 
 div{
@@ -39,15 +46,26 @@ main {
     flex-grow: 1;
   }
 
-  #S { top:0;   background-color:black; height:54%; text-overflow: ellipsis; }
-  #E { top:50%;   background-color: black; height:50%;    }
+  #S { top:0;   background-color:black; height:35%; text-overflow: ellipsis; }
+  #E { top:50%;   background-color: black; height:65%;  overflow-y:auto;  margin:2px; }
   #N {  background:black; overflow-y:auto;  }    
   #S {  background:black; overflow-y:auto;  }   
-  #W {margin:2px;}
+  #W {margin:2px; overflow-y: hidden;}
 
+::-webkit-scrollbar {
+  display: none;
+}
+table{
+  width: 100%;
+}
 
+caption{
+  color: white;
+}
 
-a { color: #FE9E23; }
+a{
+  color: #FE9E23;
+}
 
 a:link {
     text-decoration: none;
@@ -57,4 +75,10 @@ a:visited {
 text-decoration: none;
 }
 #sf {position:fixed; bottom: 0; background: black; min-width: 100000px;
+}
+
+#ticker-in{
+  width: 35px;
+  background-color: black;
+  color: white; 
 }

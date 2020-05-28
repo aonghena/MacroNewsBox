@@ -7,7 +7,7 @@ function rssFeeder(){
     var myConsole = new nodeConsole.Console(process.stdout, process.stderr);
     let Parser = require('rss-parser');
     let parser = new Parser();
-    const app = document.getElementById('W');
+    var app = document.getElementById('W');
     (async () => {
     var rssFeed = [];
     var lastDate = [];
@@ -21,13 +21,16 @@ function rssFeeder(){
         if(document.getElementById(date) == null){
             rssFeed.forEach( feed => {
                 feed.items.forEach(item => {
+                    var img = document.createElement("img");
+                    img.src = "./assets/rss.png";
+                    app.appendChild(img)
                     var tag = document.createElement("a");
                     tag.appendChild(document.createTextNode(item.title));
                     tag.id = item.pubDate;
                     tag.href = item.link;
                     tag.target = "_blank"
                     app.appendChild(tag);
-                    app.appendChild(document.createElement("hr"));
+                    app.appendChild(document.createElement("hr"));   
                 });
               });
         }

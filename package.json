@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "bootstrap": "^4.5.0",
-    "rss-parser": "^3.8.0"
+    "request": "^2.88.2",
+    "rss-parser": "^3.8.0",
+    "websocket": "^1.0.31"
   }
 }
