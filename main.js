@@ -11,11 +11,11 @@ function createWindow () {
     }
   })
 
-  var menu = Menu.buildFromTemplate([
-      {
-          label: 'Macro News Box',
-          submenu: [
-              {label:'Sources', 
+  const template = [
+    {
+      label: 'Sources',
+      submenu: [
+        {label:'Sources', 
               click(){
                 let sourceWin = new BrowserWindow({
                   width: 500,
@@ -28,13 +28,50 @@ function createWindow () {
                 sourceWin.on('closed', _ => {
                   win.reload();
                 });
-              },
-            
-            },
-              {label:'Exit'}
-          ]
-      }
-  ])
+              }
+            }
+            ]   
+    }
+  ]
+  
+  if (process.platform === 'darwin') {
+    const name = app.getName()
+    template.unshift({
+      label: name,
+      submenu: [
+        {
+          role: 'about'
+        },
+        {
+          type: 'separator'
+        },
+        {
+          role: 'services',
+          submenu: []
+        },
+        {
+          type: 'separator'
+        },
+        {
+          role: 'hide'
+        },
+        {
+          role: 'hideothers'
+        },
+        {
+          role: 'unhide'
+        },
+        {
+          type: 'separator'
+        },
+        {
+          role: 'quit'
+        }
+      ]
+    })
+  }
+  
+  const menu = Menu.buildFromTemplate(template)
   Menu.setApplicationMenu(menu); 
 
   // and load the index.html of the app.
