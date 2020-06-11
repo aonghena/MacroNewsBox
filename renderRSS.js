@@ -29,8 +29,6 @@ function rssFeeder(){
                     tag.href = item.link;
                     tag.target = "_blank"
                     m.push(tag)
-                    //app.appendChild(tag);
-                    //app.appendChild(document.createElement("hr"));   
                 });
                 links.push(m);
             });

@@ -24,19 +24,32 @@ function getNews(ticker){
         document.getElementById('NS').textContent = Number((G['companyNewsScore']*100).toFixed(2));
         document.getElementById('SANS').textContent = Number((G['sectorAverageNewsScore']*100).toFixed(2));
         document.getElementById('SANSET').textContent = Number((G['sectorAverageBullishPercent']*100).toFixed(2)) + "%";
-        /*if(G['sentiment']['bullishPercent'] > G['sectorAverageBullishPercent']){
-
-        }*/
+        if(G['sectorAverageNewsScore'] > G['companyNewsScore']){
+          document.getElementById("NS").style.color = "red";
+        }else if(G['sectorAverageNewsScore'] < G['companyNewsScore']){
+          document.getElementById("NS").style.color = "green";
+        }else{
+          document.getElementById("NS").stylse.color = "#FE9E23";
+        }
+        if(G['sentiment']['bullishPercent'] < G['sectorAverageBullishPercent']){
+          document.getElementById("NSET").style.color = "red";
+        }else if(G['sentiment']['bullishPercent'] > G['sectorAverageBullishPercent']){
+          document.getElementById("NSET").style.color = "green";
+        }else{
+          document.getElementById("NSET").style.color = "#FE9E23";
+        }
       }
   });
 
   var options = {
     'method': 'GET',
-    'url': 'https://finnhub.io/api/v1/company-news?symbol='+  ticker +'&from=2020-04-30&to=20-06-01&token=' + foo.TOKEN
+    'url': 'https://finnhub.io/api/v1/company-news?token=' + foo.TOKEN + '&symbol=' +ticker
   };
   request(options, function (error, res) { 
     if (error) throw new Error(error);
+    myConsole.log(res.body);
     var G = JSON.parse(res.body)
+    myConsole.log(G);
     const app = document.getElementById('newz');
     app.innerHTML = '';
     app.textContent = 'Company Related News';
@@ -55,6 +68,7 @@ getNews('AAPL');
 
 document.querySelector('#ticker-in').addEventListener('keypress', (e) => {
   if (e.key === 'Enter') {
+    myConsole.log(document.getElementById("ticker-in").value);
     getNews(document.getElementById("ticker-in").value);
 
   }

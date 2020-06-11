@@ -82,3 +82,7 @@ text-decoration: none;
   background-color: black;
   color: white; 
 }
+
+textarea:focus, input:focus{
+  outline: none;
+}
