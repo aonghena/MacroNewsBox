@@ -46,11 +46,12 @@ main {
     flex-grow: 1;
   }
 
-  #S { top:0;   background-color:black; height:35%; text-overflow: ellipsis; }
+  #S { top:0;   background-color:black; height:35%;  overflow:hidden;}
   #E { top:50%;   background-color: black; height:65%;  overflow-y:auto;  margin:2px; }
   #N {  background:black; overflow-y:auto;  }    
-  #S {  background:black; overflow-y:auto;  }   
+  #S {  background:black;  }   
   #W {margin:2px; overflow-y: hidden;}
+  .sss {display: inline; padding: 20px;}
 
 ::-webkit-scrollbar {
   display: none;

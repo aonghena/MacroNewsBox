@@ -1,5 +1,7 @@
-const TOKEN = 'YOUR FINHUB.IO API KEY HERE';
+const FINHUB = 'YOUR FINHUB.IO API KEY HERE';
+const IEX = 'YOUR IEX KEY HERE'
 
 module.exports = {
-    TOKEN: TOKEN
+    TOKEN: FINHUB,
+    IEX: IEX
 };

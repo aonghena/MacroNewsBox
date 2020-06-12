@@ -1,10 +1,10 @@
 const fs = require('fs');
 
 function rssFeeder(){
-    let rawdata = fs.readFileSync('userSettings.json');
-    let userSettings = JSON.parse(rawdata);
     var nodeConsole = require('console');
     var myConsole = new nodeConsole.Console(process.stdout, process.stderr);
+    let rawdata = fs.readFileSync(__dirname + '/userSettings.json');
+    let userSettings = JSON.parse(rawdata);
     let Parser = require('rss-parser');
     let parser = new Parser();
     var app = document.getElementById('W');

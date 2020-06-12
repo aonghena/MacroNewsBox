@@ -43,13 +43,11 @@ function getNews(ticker){
 
   var options = {
     'method': 'GET',
-    'url': 'https://finnhub.io/api/v1/company-news?token=' + foo.TOKEN + '&symbol=' +ticker
+    'url': 'https://finnhub.io/api/v1/company-news?symbol='+  ticker +'&from=2020-04-30&to=2030-06-01&token=' + foo.TOKEN
   };
   request(options, function (error, res) { 
     if (error) throw new Error(error);
-    myConsole.log(res.body);
     var G = JSON.parse(res.body)
-    myConsole.log(G);
     const app = document.getElementById('newz');
     app.innerHTML = '';
     app.textContent = 'Company Related News';
@@ -63,12 +61,43 @@ function getNews(ticker){
           app.appendChild(document.createElement("hr"));   
     }
   });
-}
-getNews('AAPL');
+  var options = {
+    'method': 'GET',
+    'url': 'https://cloud.iexapis.com/stable/stock/' + ticker + '/quote?token=' + foo.IEX,
+  };
+  request(options, function (error, res) {
+    if (error) throw new Error(error);
+    var G = JSON.parse(res.body)
+    if(G['calculationPrice'] == 'close' && G['extendedPrice'] != null){
+      document.getElementById('price').innerText = "$" + G['extendedPrice'];
+      x = (Math.round( Number(G['extendedChangePercent'])*10000) / 100)
+      document.getElementById('per').innerText = x+"%";
+    }else{
+      document.getElementById('price').innerText = G['latestPrice'];
+      x = (Math.round( Number(G['changePercent'])*10000) / 100)
+      document.getElementById('per').innerText = x+"%";
+    }
+    if(x < 0){
+      document.getElementById("per").style.color = "red";
+    }else if(x > 0){
+      document.getElementById("per").style.color = "green";
+    }else{
+      document.getElementById("per").style.color = "#FE9E23";
+    }
 
+  });
+
+
+
+
+}
+
+
+
+
+getNews('AAPL');
 document.querySelector('#ticker-in').addEventListener('keypress', (e) => {
   if (e.key === 'Enter') {
-    myConsole.log(document.getElementById("ticker-in").value);
     getNews(document.getElementById("ticker-in").value);
 
   }
