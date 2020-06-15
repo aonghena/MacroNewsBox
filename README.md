@@ -7,7 +7,7 @@ Twitter News Feed.
 Stock Chart.   
 Company News.   
 Company News Sentiment.   
-![example](https://i.imgur.com/HPmyHHW.png)
+![example](https://i.imgur.com/r6DI3hz.png)
   
 #### Build  
 Before you build you will need to generate 2 keys and add them to the passwords.js file.  
